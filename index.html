@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff4f7" />
+  <title>Martin & Dominika ♡</title>
+  <meta name="description" content="Nasza mała historia — Martin & Dominika, razem od 31.01.2026." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    :root {
+      --bg: #fff8fa;
+      --paper: rgba(255,255,255,.78);
+      --pink: #f39ab4;
+      --pink-dark: #d96f92;
+      --rose: #bd5477;
+      --text: #49363e;
+      --muted: #8e747d;
+      --line: #f2dce3;
+      --shadow: 0 20px 55px rgba(175, 94, 120, .13);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(255,196,214,.48), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(255,223,233,.7), transparent 28%),
+        linear-gradient(180deg, #fff9fb 0%, #fff4f7 48%, #fffafd 100%);
+      font-family: "DM Sans", system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .petals, .sparkles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .petal {
+      position: absolute;
+      top: -30px;
+      font-size: 16px;
+      opacity: .42;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to { transform: translate3d(80px, 110vh, 0) rotate(360deg); }
+    }
+
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 6px;
+      padding: 7px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 12px 35px rgba(175,94,120,.12);
+      backdrop-filter: blur(18px);
+      border-radius: 999px;
+    }
+    .nav a {
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      transition: .25s ease;
+    }
+    .nav a:hover { background: #fff0f5; color: var(--rose); }
+
+    main { position: relative; z-index: 1; }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 100px 20px 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-card {
+      width: min(960px, 100%);
+      padding: 52px 24px 48px;
+      border-radius: 38px;
+      background: rgba(255,255,255,.57);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(15px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--rose);
+      background: #fff0f5;
+      border: 1px solid #f9d9e4;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: "Pacifico", cursive;
+      font-weight: 400;
+      color: var(--rose);
+      font-size: clamp(50px, 10vw, 104px);
+      line-height: 1;
+      margin: 26px 0 12px;
+      text-shadow: 0 8px 30px rgba(189,84,119,.12);
+    }
+    .subtitle {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(19px, 3vw, 28px);
+      margin: 0 auto 8px;
+      color: #634b54;
+    }
+    .date {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .counter {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .counter-box {
+      padding: 18px 8px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid #f7e0e7;
+      box-shadow: 0 10px 30px rgba(175,94,120,.07);
+    }
+    .counter-value {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(25px, 5vw, 42px);
+      font-weight: 700;
+      color: var(--rose);
+      display: block;
+    }
+    .counter-label {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      cursor: pointer;
+      transition: .25s ease;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #ef91ae, #d96f92);
+      box-shadow: 0 10px 25px rgba(217,111,146,.25);
+    }
+    .btn-secondary {
+      color: var(--rose);
+      background: rgba(255,255,255,.8);
+      border: 1px solid #f3dce4;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    section {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+    .section-head {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .section-kicker {
+      color: var(--pink-dark);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 6vw, 52px);
+      margin: 8px 0 10px;
+      color: #553b45;
+    }
+    .section-head p {
+      max-width: 580px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+    }
+    .memory {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      min-height: 520px;
+      box-shadow: var(--shadow);
+      border: 5px solid white;
+      background: #f9e9ee;
+    }
+    .memory.small { min-height: 520px; }
+    .memory img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+    .memory:hover img { transform: scale(1.035); }
+    .memory-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 55px 24px 23px;
+      color: white;
+      background: linear-gradient(transparent, rgba(65,39,48,.7));
+    }
+    .memory-overlay h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      margin: 0 0 5px;
+    }
+    .memory-overlay p { margin: 0; font-size: 13px; opacity: .9; }
+
+    .timeline {
+      position: relative;
+      max-width: 780px;
+      margin: auto;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(#f7ccd9, #ef9bb5, #f7ccd9);
+      transform: translateX(-50%);
+    }
+    .event {
+      width: 50%;
+      padding: 0 32px 35px;
+      position: relative;
+    }
+    .event:nth-child(odd) { margin-left: 0; text-align: right; }
+    .event:nth-child(even) { margin-left: 50%; }
+    .event::after {
+      content: "♡";
+      position: absolute;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #f4c9d6;
+      color: var(--rose);
+      box-shadow: 0 5px 20px rgba(189,84,119,.12);
+    }
+    .event:nth-child(odd)::after { right: -16px; }
+    .event:nth-child(even)::after { left: -16px; }
+    .event-card {
+      display: inline-block;
+      width: 100%;
+      background: rgba(255,255,255,.78);
+      border: 1px solid #f3e0e6;
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 15px 40px rgba(175,94,120,.07);
+    }
+    .event-date { color: var(--pink-dark); font-size: 12px; font-weight: 700; }
+    .event-card h3 { margin: 7px 0; font-family: "Playfair Display", serif; }
+    .event-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .love-card {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      padding: 50px 28px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.85), rgba(255,240,246,.9));
+      border: 1px solid #f5d9e3;
+      box-shadow: var(--shadow);
+    }
+    .big-heart {
+      font-size: 58px;
+      display: block;
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      50% { transform: scale(1.12); }
+    }
+    .love-card p {
+      max-width: 590px;
+      margin: 15px auto 25px;
+      line-height: 1.8;
+      color: #725a63;
+    }
+
+    .music-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid #f1dce4;
+      box-shadow: 0 15px 45px rgba(175,94,120,.08);
+    }
+    .music-title { font-family: "Playfair Display", serif; font-size: 25px; }
+    .music-sub { color: var(--muted); font-size: 13px; margin-top: 5px; }
+
+    footer {
+      text-align: center;
+      padding: 45px 20px 60px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer strong { color: var(--rose); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(64,38,48,.42);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .modal.open { opacity: 1; pointer-events: auto; }
+    .modal-box {
+      width: min(560px, 100%);
+      background: #fff9fb;
+      border-radius: 30px;
+      padding: 38px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(70,35,48,.22);
+      transform: translateY(10px) scale(.98);
+      transition: .25s ease;
+    }
+    .modal.open .modal-box { transform: translateY(0) scale(1); }
+    .modal-box h3 { font-family: "Pacifico", cursive; color: var(--rose); font-size: 34px; font-weight: 400; }
+    .modal-box p { line-height: 1.8; color: #765c66; }
+
+    @media (max-width: 720px) {
+      .nav { width: calc(100% - 24px); justify-content: center; }
+      .nav a { padding: 8px 10px; font-size: 11px; }
+      .hero { padding-top: 90px; }
+      .hero-card { padding: 40px 15px; border-radius: 30px; }
+      .counter { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: 1fr; }
+      .memory, .memory.small { min-height: 430px; }
+      .timeline::before { left: 14px; }
+      .event, .event:nth-child(even), .event:nth-child(odd) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+      }
+      .event:nth-child(odd)::after, .event:nth-child(even)::after { left: -2px; right: auto; }
+      .music-card { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="#start">♡ Start</a>
+    <a href="#wspomnienia">Zdjęcia</a>
+    <a href="#historia">Historia</a>
+    <a href="#piosenka">Piosenka</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="hero-card">
+        <div class="eyebrow">Nasza mała historia ♡</div>
+        <h1>Martin &amp; Dominika</h1>
+        <p class="subtitle">Dwie osoby, jedna piękna historia.</p>
+        <div class="date">Razem od <strong>31 stycznia 2026</strong></div>
+
+        <div class="counter" aria-label="Licznik naszego związku">
+          <div class="counter-box"><span class="counter-value" id="days">0</span><span class="counter-label">dni</span></div>
+          <div class="counter-box"><span class="counter-value" id="hours">0</span><span class="counter-label">godzin</span></div>
+          <div class="counter-box"><span class="counter-value" id="minutes">0</span><span class="counter-label">minut</span></div>
+          <div class="counter-box"><span class="counter-value" id="seconds">0</span><span class="counter-label">sekund</span></div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#wspomnienia">Zobacz nasze wspomnienia ↓</a>
+          <button class="btn btn-secondary" id="letterBtn">Mam dla Ciebie coś ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="wspomnienia">
+      <div class="section-head">
+        <div class="section-kicker">Nasze chwile</div>
+        <h2>Wspomnienia, które zostają</h2>
+        <p>Małe momenty, zwykłe dni i te wyjątkowe — wszystkie są częścią naszej historii.</p>
+      </div>
+
+      <div class="gallery">
+        <article class="memory">
+          <img src="assets/wspomnienie-1.jpeg" alt="Martin i Dominika razem" />
+          <div class="memory-overlay">
+            <h3>Po prostu razem ♡</h3>
+            <p>Jedno zdjęcie, a tyle wspólnego szczęścia.</p>
+          </div>
+        </article>
+        <article class="memory small">
+          <img src="assets/wspomnienie-2.jpeg" alt="Martin i Dominika podczas wspólnego wydarzenia" />
+          <div class="memory-overlay">
+            <h3>Nasza chwila</h3>
+            <p>Bo najlepsze wspomnienia tworzymy razem.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="historia">
+      <div class="section-head">
+        <div class="section-kicker">Od początku</div>
+        <h2>Nasza historia</h2>
+        <p>To dopiero początek. Ta oś czasu jest przygotowana na kolejne rozdziały. ♡</p>
+      </div>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="event-card">
+            <div class="event-date">31.01.2026</div>
+            <h3>Początek naszej historii</h3>
+            <p>Dzień, od którego oficjalnie jesteśmy „my”. I od którego licznik już nie przestaje działać. ♡</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-card">
+            <div class="event-date">Kolejny rozdział</div>
+            <h3>Tu dodamy następne wspomnienie</h3>
+            <p>Wyjazd, pierwsza rocznica, spontaniczna przygoda albo zwykły dzień, który okazał się wyjątkowy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="piosenka">
+      <div class="section-head">
+        <div class="section-kicker">Nasza piosenka</div>
+        <h2>Perfect ♫</h2>
+        <p>Bo niektóre piosenki po prostu zaczynają brzmieć inaczej, kiedy mają już własną historię.</p>
+      </div>
+
+      <div class="music-card">
+        <div>
+          <div class="music-title">Ed Sheeran — Perfect</div>
+          <div class="music-sub">Wasz mały soundtrack do tej historii ♡</div>
+        </div>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://open.spotify.com/search/Perfect%20Ed%20Sheeran">▶ Otwórz piosenkę</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="love-card">
+        <span class="big-heart">♡</span>
+        <h2>Jeszcze tyle przed nami</h2>
+        <p>
+          Najpiękniejsze w tej stronie jest to, że nigdy nie będzie naprawdę skończona.
+          Możemy dopisywać kolejne zdjęcia, daty, miejsca, wspólne żarty i wszystkie małe rzeczy,
+          które sprawiają, że ta historia jest tylko Wasza.
+        </p>
+        <button class="btn btn-primary" id="surpriseBtn">Kliknij po małą niespodziankę</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Zrobione z miłością dla <strong>Martina &amp; Dominiki</strong> ♡
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div style="font-size:42px">💗</div>
+      <h3>Dla Ciebie</h3>
+      <p>
+        Nie potrzebuję idealnych dni. Wystarczą mi te zwyczajne,
+        jeśli mogę przeżywać je właśnie z Tobą. ♡
+      </p>
+      <button class="btn btn-primary" id="closeModal">Zamknij ♡</button>
+    </div>
+  </div>
+
+  <script>
+    // Start związku: 31.01.2026.
+    // Jeśli znacie dokładną godzinę rozpoczęcia, można ją dopisać tutaj.
+    const startDate = new Date(2026, 0, 31, 0, 0, 0);
+
+    const els = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+
+    const nf = new Intl.NumberFormat("pl-PL");
+
+    function updateCounter() {
+      const now = new Date();
+      let diff = Math.max(0, now - startDate);
+
+      const days = Math.floor(diff / 86400000);
+      diff %= 86400000;
+      const hours = Math.floor(diff / 3600000);
+      diff %= 3600000;
+      const minutes = Math.floor(diff / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      els.days.textContent = nf.format(days);
+      els.hours.textContent = String(hours).padStart(2, "0");
+      els.minutes.textContent = String(minutes).padStart(2, "0");
+      els.seconds.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    const modal = document.getElementById("modal");
+    const openModal = () => modal.classList.add("open");
+    const closeModal = () => modal.classList.remove("open");
+
+    document.getElementById("letterBtn").addEventListener("click", openModal);
+    document.getElementById("surpriseBtn").addEventListener("click", openModal);
+    document.getElementById("closeModal").addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Delikatne, unoszące się serduszka.
+    const petals = document.querySelector(".petals");
+    const symbols = ["♡", "♥", "✦", "·"];
+    for (let i = 0; i < 24; i++) {
+      const el = document.createElement("span");
+      el.className = "petal";
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + "%";
+      el.style.animationDuration = (8 + Math.random() * 12) + "s";
+      el.style.animationDelay = (-Math.random() * 18) + "s";
+      el.style.fontSize = (10 + Math.random() * 15) + "px";
+      petals.appendChild(el);
+    }
+  </script>
+</body>
+</html>
