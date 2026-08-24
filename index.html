@@ -6,23 +6,28 @@
   <meta name="theme-color" content="#fff4f7" />
   <title>Martin & Dominika ♡</title>
   <meta name="description" content="Nasza mała historia — Martin & Dominika, razem od 31.01.2026." />
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&family=Playfair+Display:wght@500;600;700&display=swap');
 
     :root {
       --bg: #fff8fa;
-      --paper: rgba(255,255,255,.78);
       --pink: #f39ab4;
       --pink-dark: #d96f92;
       --rose: #bd5477;
       --text: #49363e;
       --muted: #8e747d;
-      --line: #f2dce3;
       --shadow: 0 20px 55px rgba(175, 94, 120, .13);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       color: var(--text);
@@ -34,16 +39,25 @@
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .petals, .sparkles {
+    button {
+      font: inherit;
+    }
+
+    /* SERDUSZKA W TLE */
+
+    .petals {
       position: fixed;
       inset: 0;
       pointer-events: none;
       overflow: hidden;
       z-index: 0;
     }
+
     .petal {
       position: absolute;
       top: -30px;
@@ -51,9 +65,14 @@
       opacity: .42;
       animation: fall linear infinite;
     }
+
     @keyframes fall {
-      to { transform: translate3d(80px, 110vh, 0) rotate(360deg); }
+      to {
+        transform: translate3d(80px, 110vh, 0) rotate(360deg);
+      }
     }
+
+    /* MENU */
 
     .nav {
       position: fixed;
@@ -70,6 +89,7 @@
       backdrop-filter: blur(18px);
       border-radius: 999px;
     }
+
     .nav a {
       padding: 9px 15px;
       border-radius: 999px;
@@ -77,9 +97,18 @@
       color: var(--muted);
       transition: .25s ease;
     }
-    .nav a:hover { background: #fff0f5; color: var(--rose); }
 
-    main { position: relative; z-index: 1; }
+    .nav a:hover {
+      background: #fff0f5;
+      color: var(--rose);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HERO */
 
     .hero {
       min-height: 100vh;
@@ -87,7 +116,6 @@
       place-items: center;
       padding: 100px 20px 70px;
       text-align: center;
-      position: relative;
     }
 
     .hero-card {
@@ -122,19 +150,22 @@
       font-size: clamp(50px, 10vw, 104px);
       line-height: 1;
       margin: 26px 0 12px;
-      text-shadow: 0 8px 30px rgba(189,84,119,.12);
     }
+
     .subtitle {
       font-family: "Playfair Display", serif;
       font-size: clamp(19px, 3vw, 28px);
       margin: 0 auto 8px;
       color: #634b54;
     }
+
     .date {
       color: var(--muted);
       font-size: 14px;
       margin-bottom: 32px;
     }
+
+    /* LICZNIK */
 
     .counter {
       display: grid;
@@ -143,6 +174,7 @@
       max-width: 720px;
       margin: 0 auto;
     }
+
     .counter-box {
       padding: 18px 8px;
       border-radius: 22px;
@@ -150,6 +182,7 @@
       border: 1px solid #f7e0e7;
       box-shadow: 0 10px 30px rgba(175,94,120,.07);
     }
+
     .counter-value {
       font-family: "Playfair Display", serif;
       font-size: clamp(25px, 5vw, 42px);
@@ -157,6 +190,7 @@
       color: var(--rose);
       display: block;
     }
+
     .counter-label {
       display: block;
       color: var(--muted);
@@ -173,6 +207,7 @@
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .btn {
       border: 0;
       border-radius: 999px;
@@ -182,27 +217,34 @@
       font-weight: 700;
       font-size: 13px;
     }
+
     .btn-primary {
       color: white;
       background: linear-gradient(135deg, #ef91ae, #d96f92);
       box-shadow: 0 10px 25px rgba(217,111,146,.25);
     }
+
     .btn-secondary {
       color: var(--rose);
       background: rgba(255,255,255,.8);
       border: 1px solid #f3dce4;
     }
-    .btn:hover { transform: translateY(-2px); }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
     section {
       width: min(1100px, calc(100% - 32px));
       margin: 0 auto;
       padding: 80px 0;
     }
+
     .section-head {
       text-align: center;
       margin-bottom: 35px;
     }
+
     .section-kicker {
       color: var(--pink-dark);
       font-size: 12px;
@@ -210,12 +252,14 @@
       text-transform: uppercase;
       letter-spacing: .15em;
     }
+
     h2 {
       font-family: "Playfair Display", serif;
       font-size: clamp(32px, 6vw, 52px);
       margin: 8px 0 10px;
       color: #553b45;
     }
+
     .section-head p {
       max-width: 580px;
       margin: auto;
@@ -223,11 +267,14 @@
       line-height: 1.7;
     }
 
+    /* GALERIA */
+
     .gallery {
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
+
     .memory {
       position: relative;
       overflow: hidden;
@@ -236,8 +283,9 @@
       box-shadow: var(--shadow);
       border: 5px solid white;
       background: #f9e9ee;
+      cursor: pointer;
     }
-    .memory.small { min-height: 520px; }
+
     .memory img {
       width: 100%;
       height: 100%;
@@ -245,26 +293,136 @@
       display: block;
       transition: transform .7s ease;
     }
-    .memory:hover img { transform: scale(1.035); }
+
+    .memory:hover img {
+      transform: scale(1.035);
+    }
+
     .memory-overlay {
       position: absolute;
       inset: auto 0 0;
       padding: 55px 24px 23px;
       color: white;
-      background: linear-gradient(transparent, rgba(65,39,48,.7));
+      background: linear-gradient(
+        transparent,
+        rgba(65,39,48,.7)
+      );
     }
+
     .memory-overlay h3 {
       font-family: "Playfair Display", serif;
       font-size: 25px;
       margin: 0 0 5px;
     }
-    .memory-overlay p { margin: 0; font-size: 13px; opacity: .9; }
+
+    .memory-overlay p {
+      margin: 0;
+      font-size: 13px;
+      opacity: .9;
+    }
+
+    .gallery-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    /* POWIĘKSZENIE ZDJĘĆ */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(35,18,25,.88);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: min(1000px, 100%);
+      height: min(88vh, 850px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.35);
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: 0;
+      color: white;
+      background: rgba(255,255,255,.16);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 25px;
+      display: grid;
+      place-items: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-close {
+      right: 0;
+      top: 0;
+    }
+
+    .lightbox-prev {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      text-align: center;
+      background: rgba(35,18,25,.55);
+      padding: 10px 18px;
+      border-radius: 999px;
+      max-width: 80%;
+      font-size: 13px;
+    }
+
+    /* HISTORIA */
 
     .timeline {
       position: relative;
       max-width: 780px;
       margin: auto;
     }
+
     .timeline::before {
       content: "";
       position: absolute;
@@ -275,13 +433,22 @@
       background: linear-gradient(#f7ccd9, #ef9bb5, #f7ccd9);
       transform: translateX(-50%);
     }
+
     .event {
       width: 50%;
       padding: 0 32px 35px;
       position: relative;
     }
-    .event:nth-child(odd) { margin-left: 0; text-align: right; }
-    .event:nth-child(even) { margin-left: 50%; }
+
+    .event:nth-child(odd) {
+      margin-left: 0;
+      text-align: right;
+    }
+
+    .event:nth-child(even) {
+      margin-left: 50%;
+    }
+
     .event::after {
       content: "♡";
       position: absolute;
@@ -296,8 +463,15 @@
       color: var(--rose);
       box-shadow: 0 5px 20px rgba(189,84,119,.12);
     }
-    .event:nth-child(odd)::after { right: -16px; }
-    .event:nth-child(even)::after { left: -16px; }
+
+    .event:nth-child(odd)::after {
+      right: -16px;
+    }
+
+    .event:nth-child(even)::after {
+      left: -16px;
+    }
+
     .event-card {
       display: inline-block;
       width: 100%;
@@ -307,9 +481,26 @@
       padding: 20px;
       box-shadow: 0 15px 40px rgba(175,94,120,.07);
     }
-    .event-date { color: var(--pink-dark); font-size: 12px; font-weight: 700; }
-    .event-card h3 { margin: 7px 0; font-family: "Playfair Display", serif; }
-    .event-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .event-date {
+      color: var(--pink-dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .event-card h3 {
+      margin: 7px 0;
+      font-family: "Playfair Display", serif;
+    }
+
+    .event-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* LOVE CARD */
 
     .love-card {
       max-width: 760px;
@@ -317,24 +508,35 @@
       text-align: center;
       padding: 50px 28px;
       border-radius: 34px;
-      background: linear-gradient(145deg, rgba(255,255,255,.85), rgba(255,240,246,.9));
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.85),
+        rgba(255,240,246,.9)
+      );
       border: 1px solid #f5d9e3;
       box-shadow: var(--shadow);
     }
+
     .big-heart {
       font-size: 58px;
       display: block;
       animation: pulse 1.8s infinite;
     }
+
     @keyframes pulse {
-      50% { transform: scale(1.12); }
+      50% {
+        transform: scale(1.12);
+      }
     }
+
     .love-card p {
       max-width: 590px;
       margin: 15px auto 25px;
       line-height: 1.8;
       color: #725a63;
     }
+
+    /* MUZYKA */
 
     .music-card {
       display: grid;
@@ -347,8 +549,17 @@
       border: 1px solid #f1dce4;
       box-shadow: 0 15px 45px rgba(175,94,120,.08);
     }
-    .music-title { font-family: "Playfair Display", serif; font-size: 25px; }
-    .music-sub { color: var(--muted); font-size: 13px; margin-top: 5px; }
+
+    .music-title {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+    }
+
+    .music-sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
 
     footer {
       text-align: center;
@@ -356,7 +567,12 @@
       color: var(--muted);
       font-size: 12px;
     }
-    footer strong { color: var(--rose); }
+
+    footer strong {
+      color: var(--rose);
+    }
+
+    /* MODAL */
 
     .modal {
       position: fixed;
@@ -371,7 +587,12 @@
       transition: .25s ease;
       backdrop-filter: blur(8px);
     }
-    .modal.open { opacity: 1; pointer-events: auto; }
+
+    .modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     .modal-box {
       width: min(560px, 100%);
       background: #fff9fb;
@@ -379,35 +600,110 @@
       padding: 38px;
       text-align: center;
       box-shadow: 0 30px 80px rgba(70,35,48,.22);
-      transform: translateY(10px) scale(.98);
-      transition: .25s ease;
     }
-    .modal.open .modal-box { transform: translateY(0) scale(1); }
-    .modal-box h3 { font-family: "Pacifico", cursive; color: var(--rose); font-size: 34px; font-weight: 400; }
-    .modal-box p { line-height: 1.8; color: #765c66; }
+
+    .modal-box h3 {
+      font-family: "Pacifico", cursive;
+      color: var(--rose);
+      font-size: 34px;
+      font-weight: 400;
+    }
+
+    .modal-box p {
+      line-height: 1.8;
+      color: #765c66;
+    }
+
+    /* TELEFON */
 
     @media (max-width: 720px) {
-      .nav { width: calc(100% - 24px); justify-content: center; }
-      .nav a { padding: 8px 10px; font-size: 11px; }
-      .hero { padding-top: 90px; }
-      .hero-card { padding: 40px 15px; border-radius: 30px; }
-      .counter { grid-template-columns: repeat(2, 1fr); }
-      .gallery { grid-template-columns: 1fr; }
-      .memory, .memory.small { min-height: 430px; }
-      .timeline::before { left: 14px; }
-      .event, .event:nth-child(even), .event:nth-child(odd) {
+
+      .nav {
+        width: calc(100% - 24px);
+        justify-content: center;
+      }
+
+      .nav a {
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding-top: 90px;
+      }
+
+      .hero-card {
+        padding: 40px 15px;
+        border-radius: 30px;
+      }
+
+      .counter {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .memory {
+        min-height: 430px;
+      }
+
+      .timeline::before {
+        left: 14px;
+      }
+
+      .event,
+      .event:nth-child(even),
+      .event:nth-child(odd) {
         width: 100%;
         margin-left: 0;
         padding-left: 50px;
         padding-right: 0;
         text-align: left;
       }
-      .event:nth-child(odd)::after, .event:nth-child(even)::after { left: -2px; right: auto; }
-      .music-card { grid-template-columns: 1fr; text-align: center; }
+
+      .event:nth-child(odd)::after,
+      .event:nth-child(even)::after {
+        left: -2px;
+        right: auto;
+      }
+
+      .music-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .lightbox {
+        padding: 10px;
+      }
+
+      .lightbox-content {
+        height: 82vh;
+      }
+
+      .lightbox-prev {
+        left: 4px;
+      }
+
+      .lightbox-next {
+        right: 4px;
+      }
+
+      .lightbox-close {
+        right: 4px;
+        top: 4px;
+      }
+
+      .lightbox-caption {
+        bottom: 8px;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <div class="petals" aria-hidden="true"></div>
 
   <nav class="nav">
@@ -418,181 +714,853 @@
   </nav>
 
   <main>
-    <section class="hero" id="start">
-      <div class="hero-card">
-        <div class="eyebrow">Nasza mała historia ♡</div>
-        <h1>Martin &amp; Dominika</h1>
-        <p class="subtitle">Dwie osoby, jedna piękna historia.</p>
-        <div class="date">Razem od <strong>31 stycznia 2026</strong></div>
 
-        <div class="counter" aria-label="Licznik naszego związku">
-          <div class="counter-box"><span class="counter-value" id="days">0</span><span class="counter-label">dni</span></div>
-          <div class="counter-box"><span class="counter-value" id="hours">0</span><span class="counter-label">godzin</span></div>
-          <div class="counter-box"><span class="counter-value" id="minutes">0</span><span class="counter-label">minut</span></div>
-          <div class="counter-box"><span class="counter-value" id="seconds">0</span><span class="counter-label">sekund</span></div>
+    <!-- START -->
+
+    <section class="hero" id="start">
+
+      <div class="hero-card">
+
+        <div class="eyebrow">
+          Nasza mała historia ♡
+        </div>
+
+        <h1>
+          Martin &amp; Dominika
+        </h1>
+
+        <p class="subtitle">
+          Dwie osoby, jedna piękna historia.
+        </p>
+
+        <div class="date">
+          Razem od <strong>31 stycznia 2026</strong>
+        </div>
+
+        <div class="counter">
+
+          <div class="counter-box">
+            <span class="counter-value" id="days">0</span>
+            <span class="counter-label">dni</span>
+          </div>
+
+          <div class="counter-box">
+            <span class="counter-value" id="hours">0</span>
+            <span class="counter-label">godzin</span>
+          </div>
+
+          <div class="counter-box">
+            <span class="counter-value" id="minutes">0</span>
+            <span class="counter-label">minut</span>
+          </div>
+
+          <div class="counter-box">
+            <span class="counter-value" id="seconds">0</span>
+            <span class="counter-label">sekund</span>
+          </div>
+
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#wspomnienia">Zobacz nasze wspomnienia ↓</a>
-          <button class="btn btn-secondary" id="letterBtn">Mam dla Ciebie coś ♡</button>
+
+          <a
+            class="btn btn-primary"
+            href="#wspomnienia"
+          >
+            Zobacz nasze wspomnienia ↓
+          </a>
+
+          <button
+            class="btn btn-secondary"
+            id="letterBtn"
+          >
+            Mam dla Ciebie coś ♡
+          </button>
+
         </div>
+
       </div>
+
     </section>
+
+    <!-- ZDJĘCIA -->
 
     <section id="wspomnienia">
+
       <div class="section-head">
-        <div class="section-kicker">Nasze chwile</div>
-        <h2>Wspomnienia, które zostają</h2>
-        <p>Małe momenty, zwykłe dni i te wyjątkowe — wszystkie są częścią naszej historii.</p>
+
+        <div class="section-kicker">
+          Nasze chwile
+        </div>
+
+        <h2>
+          Wspomnienia, które zostają
+        </h2>
+
+        <p>
+          Małe momenty, zwykłe dni i te wyjątkowe —
+          wszystkie są częścią naszej historii.
+        </p>
+
       </div>
 
-      <div class="gallery">
-        <article class="memory">
-          <img src="wspomnienie-1.jpeg" alt="Martin i Dominika razem" />
-          <div class="memory-overlay">
-            <h3>Po prostu razem ♡</h3>
-            <p>Jedno zdjęcie, a tyle wspólnego szczęścia.</p>
-          </div>
-        </article>
-        <article class="memory small">
-          <img src="wspomnienie-2.jpeg" alt="Martin i Dominika podczas wspólnego wydarzenia" />
-          <div class="memory-overlay">
-            <h3>Nasza chwila</h3>
-            <p>Bo najlepsze wspomnienia tworzymy razem.</p>
-          </div>
-        </article>
+      <div
+        class="gallery"
+        id="gallery"
+      ></div>
+
+      <div class="gallery-note">
+        ♡ Kliknij zdjęcie, aby zobaczyć je większe
+        i przechodzić między wspomnieniami.
       </div>
+
     </section>
 
+    <!-- HISTORIA -->
+
     <section id="historia">
+
       <div class="section-head">
-        <div class="section-kicker">Od początku</div>
-        <h2>Nasza historia</h2>
-        <p>To dopiero początek. Ta oś czasu jest przygotowana na kolejne rozdziały. ♡</p>
+
+        <div class="section-kicker">
+          Od początku
+        </div>
+
+        <h2>
+          Nasza historia
+        </h2>
+
+        <p>
+          To dopiero początek.
+          Ta oś czasu jest przygotowana na kolejne rozdziały. ♡
+        </p>
+
       </div>
 
       <div class="timeline">
+
         <div class="event">
+
           <div class="event-card">
-            <div class="event-date">31.01.2026</div>
-            <h3>Początek naszej historii</h3>
-            <p>Dzień, od którego oficjalnie jesteśmy „my”. I od którego licznik już nie przestaje działać. ♡</p>
+
+            <div class="event-date">
+              31.01.2026
+            </div>
+
+            <h3>
+              Początek naszej historii
+            </h3>
+
+            <p>
+              Dzień, od którego oficjalnie jesteśmy „my”.
+              I od którego licznik już nie przestaje działać. ♡
+            </p>
+
           </div>
+
         </div>
+
         <div class="event">
+
           <div class="event-card">
-            <div class="event-date">Kolejny rozdział</div>
-            <h3>Tu dodamy następne wspomnienie</h3>
-            <p>Wyjazd, pierwsza rocznica, spontaniczna przygoda albo zwykły dzień, który okazał się wyjątkowy.</p>
+
+            <div class="event-date">
+              Kolejny rozdział
+            </div>
+
+            <h3>
+              Tu dodamy następne wspomnienie
+            </h3>
+
+            <p>
+              Wyjazd, pierwsza rocznica, spontaniczna przygoda
+              albo zwykły dzień, który okazał się wyjątkowy.
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+    <!-- PIOSENKA -->
+
     <section id="piosenka">
+
       <div class="section-head">
-        <div class="section-kicker">Nasza piosenka</div>
-        <h2>Perfect ♫</h2>
-        <p>Bo niektóre piosenki po prostu zaczynają brzmieć inaczej, kiedy mają już własną historię.</p>
+
+        <div class="section-kicker">
+          Nasza piosenka
+        </div>
+
+        <h2>
+          Perfect ♫
+        </h2>
+
+        <p>
+          Bo niektóre piosenki po prostu zaczynają brzmieć inaczej,
+          kiedy mają już własną historię.
+        </p>
+
       </div>
 
       <div class="music-card">
+
         <div>
-          <div class="music-title">Ed Sheeran — Perfect</div>
-          <div class="music-sub">Wasz mały soundtrack do tej historii ♡</div>
+
+          <div class="music-title">
+            Ed Sheeran — Perfect
+          </div>
+
+          <div class="music-sub">
+            Wasz mały soundtrack do tej historii ♡
+          </div>
+
         </div>
-        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://open.spotify.com/search/Perfect%20Ed%20Sheeran">▶ Otwórz piosenkę</a>
+
+        <a
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener"
+          href="https://open.spotify.com/search/Perfect%20Ed%20Sheeran"
+        >
+          ▶ Otwórz piosenkę
+        </a>
+
       </div>
+
     </section>
 
+    <!-- KONIEC -->
+
     <section>
+
       <div class="love-card">
-        <span class="big-heart">♡</span>
-        <h2>Jeszcze tyle przed nami</h2>
+
+        <span class="big-heart">
+          ♡
+        </span>
+
+        <h2>
+          Jeszcze tyle przed nami
+        </h2>
+
         <p>
-          Najpiękniejsze w tej stronie jest to, że nigdy nie będzie naprawdę skończona.
-          Możemy dopisywać kolejne zdjęcia, daty, miejsca, wspólne żarty i wszystkie małe rzeczy,
+          Najpiękniejsze w tej stronie jest to,
+          że nigdy nie będzie naprawdę skończona.
+          Możemy dopisywać kolejne zdjęcia, daty, miejsca,
+          wspólne żarty i wszystkie małe rzeczy,
           które sprawiają, że ta historia jest tylko Wasza.
         </p>
-        <button class="btn btn-primary" id="surpriseBtn">Kliknij po małą niespodziankę</button>
+
+        <button
+          class="btn btn-primary"
+          id="surpriseBtn"
+        >
+          Kliknij po małą niespodziankę
+        </button>
+
       </div>
+
     </section>
+
   </main>
 
   <footer>
-    Zrobione z miłością dla <strong>Martina &amp; Dominiki</strong> ♡
+    Zrobione z miłością dla
+    <strong>Martina &amp; Dominiki</strong> ♡
   </footer>
 
-  <div class="modal" id="modal">
+  <!-- WIADOMOŚĆ -->
+
+  <div
+    class="modal"
+    id="modal"
+  >
+
     <div class="modal-box">
-      <div style="font-size:42px">💗</div>
-      <h3>Dla Ciebie</h3>
+
+      <div style="font-size:42px">
+        💗
+      </div>
+
+      <h3>
+        Dla Ciebie
+      </h3>
+
       <p>
-        Nie potrzebuję idealnych dni. Wystarczą mi te zwyczajne,
+        Nie potrzebuję idealnych dni.
+        Wystarczą mi te zwyczajne,
         jeśli mogę przeżywać je właśnie z Tobą. ♡
       </p>
-      <button class="btn btn-primary" id="closeModal">Zamknij ♡</button>
+
+      <button
+        class="btn btn-primary"
+        id="closeModal"
+      >
+        Zamknij ♡
+      </button>
+
     </div>
+
+  </div>
+
+  <!-- POWIĘKSZONE ZDJĘCIE -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+  >
+
+    <div class="lightbox-content">
+
+      <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Zamknij"
+      >
+        ×
+      </button>
+
+      <button
+        class="lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Poprzednie zdjęcie"
+      >
+        ‹
+      </button>
+
+      <img
+        class="lightbox-image"
+        id="lightboxImage"
+        src=""
+        alt=""
+      />
+
+      <button
+        class="lightbox-next"
+        id="lightboxNext"
+        aria-label="Następne zdjęcie"
+      >
+        ›
+      </button>
+
+      <div
+        class="lightbox-caption"
+        id="lightboxCaption"
+      ></div>
+
+    </div>
+
   </div>
 
   <script>
-    // Start związku: 31.01.2026.
-    // Jeśli znacie dokładną godzinę rozpoczęcia, można ją dopisać tutaj.
-    const startDate = new Date(2026, 0, 31, 0, 0, 0);
+
+    /*
+    ================================================================
+    DODAWANIE KOLEJNYCH ZDJĘĆ
+    ================================================================
+
+    1. Wrzuć zdjęcie do repozytorium GitHub.
+       MUSI znajdować się obok index.html.
+
+    2. Nazwij je np.:
+
+       wspomnienie-3.jpeg
+
+    3. Dodaj poniżej kolejny element.
+
+    Przykład:
+
+    {
+      image: "wspomnienie-3.jpeg",
+      title: "Kolejne wspomnienie ♡",
+      description: "Nasz kolejny piękny moment."
+    }
+
+    I GOTOWE ❤️
+
+    ================================================================
+    */
+
+    const memories = [
+
+      {
+        image: "wspomnienie-1.jpeg",
+        title: "Po prostu razem ♡",
+        description: "Jedno zdjęcie, a tyle wspólnego szczęścia."
+      },
+
+      {
+        image: "wspomnienie-2.jpeg",
+        title: "Nasza chwila",
+        description: "Bo najlepsze wspomnienia tworzymy razem."
+      }
+
+      /*
+      KOLEJNE ZDJĘCIA DODAWAJ TUTAJ:
+
+      ,{
+        image: "wspomnienie-3.jpeg",
+        title: "Kolejne wspomnienie ♡",
+        description: "Nasz kolejny piękny moment."
+      }
+
+      ,{
+        image: "wspomnienie-4.jpeg",
+        title: "Jeszcze jeden dzień ♡",
+        description: "Kolejna chwila tylko dla nas."
+      }
+
+      */
+
+    ];
+
+
+    /* ============================================================
+       TWORZENIE GALERII
+       ============================================================ */
+
+    const gallery =
+      document.getElementById("gallery");
+
+    memories.forEach((memory, index) => {
+
+      const article =
+        document.createElement("article");
+
+      article.className = "memory";
+
+      article.innerHTML = `
+
+        <img
+          src="${memory.image}"
+          alt="${memory.title}"
+          loading="${index > 1 ? "lazy" : "eager"}"
+        >
+
+        <div class="memory-overlay">
+
+          <h3>
+            ${memory.title}
+          </h3>
+
+          <p>
+            ${memory.description}
+          </p>
+
+        </div>
+
+      `;
+
+      article.addEventListener(
+        "click",
+        () => openLightbox(index)
+      );
+
+      gallery.appendChild(article);
+
+    });
+
+
+    /* ============================================================
+       LICZNIK
+       ============================================================ */
+
+    const startDate =
+      new Date(2026, 0, 31, 0, 0, 0);
 
     const els = {
-      days: document.getElementById("days"),
-      hours: document.getElementById("hours"),
-      minutes: document.getElementById("minutes"),
-      seconds: document.getElementById("seconds")
+
+      days:
+        document.getElementById("days"),
+
+      hours:
+        document.getElementById("hours"),
+
+      minutes:
+        document.getElementById("minutes"),
+
+      seconds:
+        document.getElementById("seconds")
+
     };
 
-    const nf = new Intl.NumberFormat("pl-PL");
+    const nf =
+      new Intl.NumberFormat("pl-PL");
+
 
     function updateCounter() {
-      const now = new Date();
-      let diff = Math.max(0, now - startDate);
 
-      const days = Math.floor(diff / 86400000);
+      const now =
+        new Date();
+
+      let diff =
+        Math.max(
+          0,
+          now - startDate
+        );
+
+      const days =
+        Math.floor(
+          diff / 86400000
+        );
+
       diff %= 86400000;
-      const hours = Math.floor(diff / 3600000);
-      diff %= 3600000;
-      const minutes = Math.floor(diff / 60000);
-      const seconds = Math.floor((diff % 60000) / 1000);
 
-      els.days.textContent = nf.format(days);
-      els.hours.textContent = String(hours).padStart(2, "0");
-      els.minutes.textContent = String(minutes).padStart(2, "0");
-      els.seconds.textContent = String(seconds).padStart(2, "0");
+      const hours =
+        Math.floor(
+          diff / 3600000
+        );
+
+      diff %= 3600000;
+
+      const minutes =
+        Math.floor(
+          diff / 60000
+        );
+
+      const seconds =
+        Math.floor(
+          (diff % 60000) / 1000
+        );
+
+
+      els.days.textContent =
+        nf.format(days);
+
+      els.hours.textContent =
+        String(hours).padStart(2, "0");
+
+      els.minutes.textContent =
+        String(minutes).padStart(2, "0");
+
+      els.seconds.textContent =
+        String(seconds).padStart(2, "0");
+
     }
 
     updateCounter();
-    setInterval(updateCounter, 1000);
 
-    const modal = document.getElementById("modal");
-    const openModal = () => modal.classList.add("open");
-    const closeModal = () => modal.classList.remove("open");
+    setInterval(
+      updateCounter,
+      1000
+    );
 
-    document.getElementById("letterBtn").addEventListener("click", openModal);
-    document.getElementById("surpriseBtn").addEventListener("click", openModal);
-    document.getElementById("closeModal").addEventListener("click", closeModal);
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
 
-    // Delikatne, unoszące się serduszka.
-    const petals = document.querySelector(".petals");
-    const symbols = ["♡", "♥", "✦", "·"];
-    for (let i = 0; i < 24; i++) {
-      const el = document.createElement("span");
-      el.className = "petal";
-      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-      el.style.left = Math.random() * 100 + "%";
-      el.style.animationDuration = (8 + Math.random() * 12) + "s";
-      el.style.animationDelay = (-Math.random() * 18) + "s";
-      el.style.fontSize = (10 + Math.random() * 15) + "px";
-      petals.appendChild(el);
+    /* ============================================================
+       WIADOMOŚĆ
+       ============================================================ */
+
+    const modal =
+      document.getElementById("modal");
+
+    const openModal =
+      () => modal.classList.add("open");
+
+    const closeModal =
+      () => modal.classList.remove("open");
+
+
+    document
+      .getElementById("letterBtn")
+      .addEventListener(
+        "click",
+        openModal
+      );
+
+
+    document
+      .getElementById("surpriseBtn")
+      .addEventListener(
+        "click",
+        openModal
+      );
+
+
+    document
+      .getElementById("closeModal")
+      .addEventListener(
+        "click",
+        closeModal
+      );
+
+
+    modal.addEventListener(
+      "click",
+      (e) => {
+
+        if (e.target === modal) {
+          closeModal();
+        }
+
+      }
+    );
+
+
+    /* ============================================================
+       GALERIA — POWIĘKSZENIE
+       ============================================================ */
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+
+    const lightboxCaption =
+      document.getElementById("lightboxCaption");
+
+    let currentIndex = 0;
+
+
+    function showLightbox(index) {
+
+      if (!memories.length) {
+        return;
+      }
+
+      currentIndex =
+        (index + memories.length)
+        % memories.length;
+
+      const memory =
+        memories[currentIndex];
+
+
+      lightboxImage.src =
+        memory.image;
+
+      lightboxImage.alt =
+        memory.title;
+
+      lightboxCaption.textContent =
+        `${memory.title} — ${memory.description}`;
+
     }
+
+
+    function openLightbox(index) {
+
+      showLightbox(index);
+
+      lightbox.classList.add("open");
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.style.overflow =
+        "hidden";
+
+    }
+
+
+    function closeLightbox() {
+
+      lightbox.classList.remove(
+        "open"
+      );
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    function nextImage() {
+
+      showLightbox(
+        currentIndex + 1
+      );
+
+    }
+
+
+    function prevImage() {
+
+      showLightbox(
+        currentIndex - 1
+      );
+
+    }
+
+
+    document
+      .getElementById("lightboxClose")
+      .addEventListener(
+        "click",
+        closeLightbox
+      );
+
+
+    document
+      .getElementById("lightboxNext")
+      .addEventListener(
+        "click",
+        nextImage
+      );
+
+
+    document
+      .getElementById("lightboxPrev")
+      .addEventListener(
+        "click",
+        prevImage
+      );
+
+
+    lightbox.addEventListener(
+      "click",
+      (e) => {
+
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+
+      }
+    );
+
+
+    /* ============================================================
+       KLAWIATURA
+       ============================================================ */
+
+    document.addEventListener(
+      "keydown",
+      (e) => {
+
+        if (
+          !lightbox.classList.contains("open")
+        ) {
+          return;
+        }
+
+        if (e.key === "Escape") {
+          closeLightbox();
+        }
+
+        if (e.key === "ArrowRight") {
+          nextImage();
+        }
+
+        if (e.key === "ArrowLeft") {
+          prevImage();
+        }
+
+      }
+    );
+
+
+    /* ============================================================
+       PRZESUWANIE PALCEM NA IPHONIE
+       ============================================================ */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    lightbox.addEventListener(
+      "touchstart",
+      (e) => {
+
+        touchStartX =
+          e.changedTouches[0].screenX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    lightbox.addEventListener(
+      "touchend",
+      (e) => {
+
+        touchEndX =
+          e.changedTouches[0].screenX;
+
+        const distance =
+          touchEndX - touchStartX;
+
+
+        if (Math.abs(distance) > 50) {
+
+          if (distance < 0) {
+            nextImage();
+          } else {
+            prevImage();
+          }
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* ============================================================
+       ANIMOWANE SERDUSZKA
+       ============================================================ */
+
+    const petals =
+      document.querySelector(".petals");
+
+    const symbols =
+      ["♡", "♥", "✦", "·"];
+
+
+    for (
+      let i = 0;
+      i < 24;
+      i++
+    ) {
+
+      const el =
+        document.createElement("span");
+
+      el.className =
+        "petal";
+
+      el.textContent =
+        symbols[
+          Math.floor(
+            Math.random()
+            * symbols.length
+          )
+        ];
+
+      el.style.left =
+        Math.random() * 100 + "%";
+
+      el.style.animationDuration =
+        (8 + Math.random() * 12) + "s";
+
+      el.style.animationDelay =
+        (-Math.random() * 18) + "s";
+
+      el.style.fontSize =
+        (10 + Math.random() * 15) + "px";
+
+
+      petals.appendChild(el);
+
+    }
+
   </script>
+
 </body>
 </html>
